@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  margin: 0;
+  width: 100%;
+}
+
+h4 {
+  font-size: 2em;
+  color: white;
+}
+
+.row {
+  text-align: center;
+  width: 100%;
+  background-color: black;
+}
+
+.row:after {
+  content: "";
+  clear: both;
+}
+
+.column {
+  height: 20vh;
+  text-align: center;
+  color: white;
+  background-color: black;
+  float: left;
+}
+
+.column:hover {
+  background-color: #222325;
+}
+
+.one {
+  width: 100%;
+  border: 1px solid #c9ffdd;
+}
+
+.half {
+  width: 50%;
+  border: 1px dashed white;
+}
+
+.quarter {
+  width: 25%;
+  border: 1px dashed #2c84ff;
+}
+
+.third {
+  width: 33.33333%;
+  border: 1px dashed #802a4a;
+}
+
+.eighth {
+  width: 12.5%;
+  border: 1px dashed #ff4632;
+}
