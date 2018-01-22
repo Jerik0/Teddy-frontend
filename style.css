@@ -69,3 +69,16 @@ h4 {
 .hovered {
   border: 1px solid white;
 }
+
+.flash {
+  animation-name: flash;
+  animation-duration: 1.5s;
+}
+
+@keyframes flash {
+  0% {opacity: .95}
+  25% {opacity: .2}
+  50% {opacity: .95}
+  75% {opacity: .2}
+  100% {opacity: .95}
+}
