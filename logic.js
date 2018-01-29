@@ -22,7 +22,7 @@
         if(this.classList[i] === 'flash') {
           $(this).parent().children().removeClass('flash'); //supposed to remove flash class
         }
-        // $(this).parent().children().addClass('flash'); //adds flash class
+        $(this).parent().children().addClass('flash'); //adds flash class
         i++;
       }
     }

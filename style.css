@@ -3,14 +3,20 @@
 }
 
 html, body {
+  background-color: #262729;
   width: 100%;
   min-height: 100vh;
   margin: 0;
+  font-family: abel, 'sans-serif';
 }
 
 .container {
   margin: 0;
   width: 100%;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: anton, 'sans-serif';
 }
 
 h4 {
@@ -81,4 +87,18 @@ h4 {
   50% {opacity: .95}
   75% {opacity: .2}
   100% {opacity: .95}
+}
+
+/*============spacing and positions html=============*/
+.section {
+  min-height: 200px;
+}
+
+#octo-container {
+  text-align: center;
+  border: 1px solid black;
+}
+
+#octopus {
+  height: 300px;
 }
