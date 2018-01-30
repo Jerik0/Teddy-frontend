@@ -16,33 +16,19 @@
     }
   }
 
-  function containsNumbers(str) {
-    let foreignArray = [];
-    for(let i = 0; i<str.length; i++) {
-      if(numbers.includes(str[i])) {
-        console.log(str[i]);
-        foreignArray.push(parseInt(i));
-      }
-    }
-    if(foreignArray.length !== 0) {
-      cleanString(str, foreignArray);
-    }
-  }
-
-  function cleanString(str, array) {
-    console.log('cleanString() activated');
-    let halfOne = '';
-    let halfTwo = '';
-    let removedChars = [];
-    for(let i = 0; i<str.length; i++) {
-      if((i === array[i])) {
-
-      }
-    }
-  }
-
   function containsSymbols(str) {
 
+  }
+
+  function cleanString(arr) {
+    let nastyArr = [];
+    for(let i = 0; i < arr.length; i++) {
+      if((arr.charCodeAt(i) >= 65 && arr.charCodeAt(i) <= 90) || (arr.charCodeAt(i) >= 97 && arr.charCodeAt(i) <= 122)) {
+        console.log(arr.charCodeAt(i));
+        nastyArr.push(arr[i]);
+      }
+    }
+    return nastyArr.join('');
   }
 
 // })();
