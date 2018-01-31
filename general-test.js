@@ -67,18 +67,52 @@
 
   const fizzBuzz = () => {
     for(let i=0; i<100; i++) {
-      if(i % 5===0 && i % 3===0) {
+      if(i % 5==0 && i % 3==0) {
         console.log('FizzBuzz');
-      } else if(i % 5===0) {
-        console.log('Fizz');
-      } else if(i % 3===0) {
+      } else if(i % 5==0) {
         console.log('Buzz');
+      } else if(i % 3==0) {
+        console.log('Fizz');
       } else {
         console.log(i);
       }
     }
   };
 
+  const isEven = (num) => {
+    return (parseInt(num) % 2 == 0);
+  };
 
+  for(let i=0; i<10; i++) {
+    let num = Math.floor((Math.random() * 20) + 200);
+    isEven(num);
+  }
+
+  const reverseInput = (str) => {
+    let reversed = '';
+    for(let i=str.length; i>-1; i--) {
+      reversed += str.charAt(i);
+    }
+    return reversed;
+  };
+
+  const isPalindrome = (str) => {
+    let half = '';
+    let half2 = [];
+    if(isEven(str.length)) {
+      half = str.substring(0,(str.length/2));
+      for(let i=str.length; i>(str.length/2) -1; i--) {
+        half2.push(str[i]);
+      }
+      half2 = half2.join('');
+    } else {
+      half = str.substring(0,(str.length/2));
+      for(let i=str.length; i>(str.length/2); i--) {
+        half2.push(str[i]);
+      }
+      half2 = half2.join('');
+    }
+    return (half === half2);
+  };
 
 // })();
