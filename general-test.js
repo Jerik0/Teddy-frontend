@@ -27,15 +27,15 @@
     return firstChar + str.substring(1);
   };
 
+  //takes in string of any characters, returns only letters.
   const cleanString = (arr) => {
-    let nastyArr = [];
+    let nastyArr = '';
     for(let i=0; i<arr.length; i++) {
       if((arr.charCodeAt(i) >= 65 && arr.charCodeAt(i) <= 90) || (arr.charCodeAt(i) >= 97 && arr.charCodeAt(i) <= 122)) {
-        console.log(arr.charCodeAt(i));
-        nastyArr.push(arr[i]);
+        nastyArr = nastyArr.concat(arr[i]);
       }
     }
-    return nastyArr.join('');
+    return nastyArr;
   };
 
   const containsCapitalLetter = (str) => {
@@ -60,6 +60,10 @@
     return (parseInt(num) % 2==0);
   };
 
+  const isNumber = (str) => {
+    return !isNaN(parseInt(str));
+  };
+
   const isPalindrome = (str) => {
     let half = '';
     let half2 = [];
@@ -79,7 +83,6 @@
     return (half === half2);
   };
 
-
   const multiplesTable = (num, max) => {
     for (let i=0; i<=max; i++) {
       let result = num * i;
@@ -87,18 +90,11 @@
     }
   };
 
-  const numGenerator = () => {
-    for(let i=0; i<10; i++) {
-      let num = Math.floor((Math.random() * 20) + 200);
-      isEven(num);
-    }
-  };
-
   const openConesShop = () => {
-    let allCones = Math.floor(Math.random() * 50) + 50;
+    let allCones = randomGen(50,100);
 
     do {
-      let randomCones = Math.floor(Math.random() * 5 + 1);
+      let randomCones = randomGen(1,5);
       if(allCones < randomCones) {
         allCones -= allCones;
         console.log("Cones left: " + allCones);
@@ -109,11 +105,15 @@
     } while (allCones > 0);
   };
 
-/*
-* TODO write a function that takes in a string and checks for characters in the string that could be used for any one word in an array of words. If so, print out those words that were spelled with the characters from the string. */
+const randomGen = (startAt, stopAt) => {
+  return Math.floor((Math.random() * stopAt) + startAt);
+};
 
   const reverseInput = (str) => {
     let reversed = '';
+    if(isNumber(str)) {
+      str = str.toString();
+    }
     for(let i=str.length; i>-1; i--) {
       reversed += str.charAt(i);
     }
@@ -121,16 +121,152 @@
   };
 
   const staggerString = (str) => {
-    let newArray = [];
+    let newArray = '';
     for(let i=0; i<str.length; i++) {
-      if(isEven(i)) {
-        newArray.push(str[i].toUpperCase());
-      } else {
-        newArray.push(str[i]);
-      }
+      (isEven(i) ? newArray = newArray.concat(str[i].toUpperCase()) : newArray = newArray.concat(str[i]));
     }
-    newArray = newArray.join('');
     return newArray;
   };
+
+  const stringGenerator = (chars) => {
+    let str = '';
+    let randChar;
+    for(let i=0; i<chars; i++) {
+      let flag = Math.round(Math.random());
+      (flag ? randChar = randomGen(65,26) : randChar = randomGen(97,26));
+      str = str.concat(String.fromCharCode(randChar));
+    }
+    return str;
+  };
+
+  let books = [
+    {
+      title: 'Terror: A Haiku Story',
+      page_length: 342,
+      author: {
+        first_name: 'Terry',
+        last_name: 'McRibbins'
+      }
+    },
+    {
+      title: 'Black and White',
+      page_length: 1200,
+      author: {
+        first_name: 'Babby',
+        last_name: 'Bobbles'
+      }
+    },
+    {
+      title: 'Barneys Folly',
+      page_length: 5,
+      author: {
+        first_name: 'Barney',
+        last_name: 'Dontworryaboutit'
+      }
+    },
+    {
+      title: 'Wise Guys',
+      page_length: 300,
+      author: {
+        first_name: 'Robert',
+        last_name: 'DeNiro'
+      }
+    },
+    {
+      title: 'De Way',
+      page_length: 500,
+      author: {
+        first_name: 'Ugandan',
+        last_name: 'Knuckles'
+      }
+    }
+  ];
+
+  const bookIterate = () => {
+    books.forEach(function(e,i) {
+      console.log(e.title + " " + e.author.first_name, e.author.last_name);
+    });
+  };
+
+  const directorNameGen = (arr) => {
+    let i = Math.floor(Math.random() * arr.length);
+    return (arr[i]);
+  };
+
+  const directorNameFinish = () => {
+    let flag = Math.round(Math.random());
+    let firstName = directorNameGen(firstNames);
+    let nickName = directorNameGen(middleNames);
+    let lastName = directorNameGen(lastNames);
+    let fullName = '';
+    (flag ? fullName = (firstName + " \'" + nickName + "\' " + lastName) : fullName =  ((firstName + " " + lastName)));
+    return fullName;
+  };
+
+  const makeDirectorList = (num) => {
+    for(let i=0; i<num; i++) {
+      console.log(directorNameFinish());
+    }
+  };
+
+  const firstNames = [
+    "Smarmy",
+    "Barnacle",
+    "Billy-Throb",
+    "Smeggin",
+    "GEORGE",
+    "Chesty",
+    "Sizzle",
+    "Monster",
+    "Squeaker",
+    "De-wey",
+    "Angel",
+    "Jorge",
+    "Margaret",
+    "Desiree",
+    "Allie",
+    "Tristan",
+    "Richard"
+  ];
+
+  const middleNames = [
+    "CHICKEN F*CKER",
+    "pleb",
+    "daddy-dick",
+    "closet-clinger",
+    "giganta-dork",
+    "music-manitee",
+    "captain-spork",
+    "gotta-catch-em-all",
+    "haha-holocaust",
+    "Thigh-Guy",
+    "dancing-queen",
+    "squirt",
+    "de-wey",
+    "knuckles",
+    "BWOOOOOOOOOOOOHHHH",
+    "The-Entirety-Of-The-Dictionary",
+    "TOTALLY-A-HUMAN",
+    "Richard",
+    "Long-Dong-Silver",
+    "Spoopy",
+    "Finger-nuggets",
+    "prolapsed-butthole",
+    "His-Majesty-Prolapse"
+  ];
+
+  const lastNames = [
+      "Barnacle",
+      "Pirouette",
+      "Cheeks",
+      "Tits",
+      "Bobberson",
+      "McGee",
+      "Magoo",
+      "McBoatface",
+      "Richards",
+      "Long",
+      "Smegpot"
+  ];
 
 // })();
