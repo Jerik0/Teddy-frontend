@@ -1,0 +1,29 @@
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  background-color: #68eeff;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+#canvas {
+  border: 3px solid #ff5451;
+  border-radius: 5%;
+  background-color: #222325;
+  height: 500px;
+  width: 500px;
+  box-shadow: 3px 2px 1px #2a2a2a;
+}
+
+.red {
+  color: red;
+}
