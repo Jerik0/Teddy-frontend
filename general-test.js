@@ -1,7 +1,115 @@
 'use strict';
 
-// (() => {
+// (function() {
 
+const firstNames = [
+  "Madam",
+  "Reverend",
+  "St.",
+  "Dr.",
+  "Mr.",
+  "Mrs.",
+  "Bethany",
+  "Tarzan",
+  "Bubba",
+  "Jonathan",
+  "Smarmy",
+  "Barnacle",
+  "Billy-Throb",
+  "Smeggin",
+  "GEORGE",
+  "Chesty",
+  "Sizzle",
+  "Monster",
+  "Squeaker",
+  "De-wey",
+  "Angel",
+  "Jorge",
+  "Margaret",
+  "Desiree",
+  "Allie",
+  "Tristan",
+  "Richard",
+  "Chastity",
+  "Megan",
+  "Dicksmasher",
+  "Dildo",
+  "Danny",
+  "Bob",
+  "Kelsey",
+  "Richard",
+  "Dick",
+  "Blumpy"
+];
+
+const middleNames = [
+  "Double-decker-dick",
+  "Damn-Daniel",
+  "Dildo",
+  "Christ-puncher",
+  "Motion-of-the-ocean",
+  "Moe-Lester",
+  "Methany",
+  "Bubba",
+  "CHICKEN F*CKER",
+  "pleb",
+  "daddy-dick",
+  "closet-clinger",
+  "giganta-dork",
+  "music-manitee",
+  "captain-spork",
+  "gotta-catch-em-all",
+  "haha-holocaust",
+  "Thigh-Guy",
+  "dancing-queen",
+  "squirt",
+  "de-wey",
+  "knuckles",
+  "BWOOOOOOOOOOOOHHHH",
+  "The-Entirety-Of-The-Dictionary",
+  "TOTALLY-A-HUMAN",
+  "Richard",
+  "Long-Dong-Silver",
+  "Spoopy",
+  "Finger-nuggets",
+  "prolapsed-butthole",
+  "His-Majesty-Prolapse",
+  "Tastes-like-grandma",
+  "Uncle-grandpa",
+  "beaner-weiner",
+  "hips-dont-lie",
+  "D. S. L.",
+  "Fury-Masturbator",
+  "Granny-Gum-Jobs",
+  "Blumpkin-Pumpkin"
+];
+
+const lastNames = [
+  "Blumpkin",
+  "Milfington",
+  "Cobbledick",
+  "Pornsak",
+  "McDickky",
+  "Shufflebottom",
+  "Longbottom",
+  "Shytles",
+  "Negar",
+  "Barnacle",
+  "Pirouette",
+  "Cheeks",
+  "Tits",
+  "Bobberson",
+  "McGee",
+  "Magoo",
+  "McBoatface",
+  "Richards",
+  "Long",
+  "Smegpot",
+  "Ballitch",
+  "Stroker",
+  "Dingleberry",
+  "Dicksmasher"
+];
 
   const addDigit = () => {
     for(let i=0; i<10; i++) {
@@ -183,7 +291,7 @@ const randomGen = (startAt, stopAt) => {
   ];
 
   const bookIterate = () => {
-    books.forEach(function(e,i) {
+    books.forEach(function(e) {
       console.log(e.title + " " + e.author.first_name, e.author.last_name);
     });
   };
@@ -205,68 +313,44 @@ const randomGen = (startAt, stopAt) => {
 
   const makeDirectorList = (num) => {
     for(let i=0; i<num; i++) {
-      console.log(directorNameFinish());
+      document.getElementById('director-name').innerText = directorNameFinish();
     }
   };
 
-  const firstNames = [
-    "Smarmy",
-    "Barnacle",
-    "Billy-Throb",
-    "Smeggin",
-    "GEORGE",
-    "Chesty",
-    "Sizzle",
-    "Monster",
-    "Squeaker",
-    "De-wey",
-    "Angel",
-    "Jorge",
-    "Margaret",
-    "Desiree",
-    "Allie",
-    "Tristan",
-    "Richard"
-  ];
+  document.getElementById('generate-btn').addEventListener('click', function() {
+    makeDirectorList(1)
+  });
 
-  const middleNames = [
-    "CHICKEN F*CKER",
-    "pleb",
-    "daddy-dick",
-    "closet-clinger",
-    "giganta-dork",
-    "music-manitee",
-    "captain-spork",
-    "gotta-catch-em-all",
-    "haha-holocaust",
-    "Thigh-Guy",
-    "dancing-queen",
-    "squirt",
-    "de-wey",
-    "knuckles",
-    "BWOOOOOOOOOOOOHHHH",
-    "The-Entirety-Of-The-Dictionary",
-    "TOTALLY-A-HUMAN",
-    "Richard",
-    "Long-Dong-Silver",
-    "Spoopy",
-    "Finger-nuggets",
-    "prolapsed-butthole",
-    "His-Majesty-Prolapse"
-  ];
+  let listItems = document.getElementsByTagName('li');
 
-  const lastNames = [
-      "Barnacle",
-      "Pirouette",
-      "Cheeks",
-      "Tits",
-      "Bobberson",
-      "McGee",
-      "Magoo",
-      "McBoatface",
-      "Richards",
-      "Long",
-      "Smegpot"
-  ];
+  let empty = document.getElementById('empty-list');
+
+  function addItem(prompt) {
+    empty.innerHTML += ('<li>' + prompt + '</li>');
+  }
+
+  let changeBtn = document.getElementById('color-list');
+  changeBtn.addEventListener('click', function() {
+    for(let i=0; i<listItems.length; i+=2) {
+      listItems[i].style.color = '#8ffbf3';
+      if(listItems[i].getAttribute('data-dbid') == "1") {
+        listItems[i].style.color = "blue";
+      }
+    }
+  });
+
+  let addBtn = document.getElementById('add-item');
+  addBtn.addEventListener('click', function() {
+    addItem(prompt('add another item!'));
+  });
+
+  let interval = 1000;
+
+  function changeList() {
+    listItems.forEach(function(e,i) {
+
+    });
+    this.style.color = 'blue';
+  }
 
 // })();

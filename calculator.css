@@ -44,3 +44,11 @@ html, body {
   background-color: #ff741e;
   color: #fff;
 }
+
+#display {
+  text-align: right;
+  border: 1px solid black;
+  height: 10%;
+  width: 100%;
+
+}

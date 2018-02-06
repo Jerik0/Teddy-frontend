@@ -2,16 +2,16 @@
 
 (() => {
 
-  let btn = document.getElementsByClassName('num-btn');
+  let btn = document.getElementsByClassName('btn');
 
-  Array.from(btn).forEach(function(e) {
-    e.addEventListener('click', function() {
-      console.log(this.innerText);
+  Array.from(btn).forEach(function(element) {
+    element.addEventListener('click', function(e) {
+      operations(e);
     });
   });
 
-  const operations = () => {
-
+  const operations = (e) => {
+    document.getElementById('display').innerText = e.target.innerText;
   };
 
 })();
