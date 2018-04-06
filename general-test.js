@@ -152,11 +152,11 @@ const lastNames = [
 
   const fizzBuzz = () => {
     for(let i=0; i<100; i++) {
-      if(i % 5==0 && i % 3==0) {
+      if(i%5 === 0 && i%3 === 0) {
         console.log('FizzBuzz');
-      } else if(i % 5==0) {
+      } else if(i%5 === 0) {
         console.log('Buzz');
-      } else if(i % 3==0) {
+      } else if(i%3 === 0) {
         console.log('Fizz');
       } else {
         console.log(i);
@@ -247,7 +247,7 @@ const randomGen = (startAt, stopAt) => {
     return str;
   };
 
-  let books = [
+let books = [
     {
       title: 'Terror: A Haiku Story',
       page_length: 342,
@@ -347,10 +347,36 @@ const randomGen = (startAt, stopAt) => {
   let interval = 1000;
 
   function changeList() {
-    listItems.forEach(function(e,i) {
+    listItems.forEach((e,i) => {
 
     });
     this.style.color = 'blue';
   }
+
+  // //TODO=========================CLICK AND DRAG TESTING=========================
+  // const getPos = () => { //get cursor location in window
+  //   document.getElementById('container').addEventListener('mousemove', );
+  // };
+
+  const attachElement = element => {
+
+  };
+
+  let noteLeft;
+  let noteTop;
+
+  document.getElementById('sticky-note').addEventListener('drag', (event) => {
+    console.log((event.clientX + document.body.scrollLeft) + ', ' + (event.clientY + document.body.scrollTop));
+    noteLeft = document.getElementById('sticky-note').style.left = (event.clientX + document.body.scrollLeft) + 'px';
+    noteTop = document.getElementById('sticky-note').style.top = (event.clientY + document.body.scrollTop) + 'px';
+  });
+
+  document.getElementById('sticky-note').addEventListener('drop', () => {
+    document.getElementById('sticky-note').style.left = noteLeft;
+    document.getElementById('sticky-note').style.top = noteTop;
+  });
+
+  //TODO=========================ANIMATION TESTING=========================
+
 
 // })();

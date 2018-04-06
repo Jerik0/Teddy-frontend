@@ -1,0 +1,35 @@
+html, body {
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#coffee-container {
+  overflow: scroll;
+  height: 50%;
+  border: 1px solid #cd1212;
+}
+
+#coffee-labels-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  height: 100%;
+  /*border: 1px solid blue;*/
+}
+
+.coffee-card {
+  height: 20%;
+  margin: 5px;
+  border: 1px solid cyan;
+}
+
+.coffee-name {
+
+}

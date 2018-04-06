@@ -8,9 +8,11 @@ html, body {
   min-height: 100vh;
   margin: 0;
   font-family: abel, 'sans-serif';
+  position: relative;
 }
 
 .container {
+  position: relative;
   margin: 0;
   width: 100%;
 }
@@ -101,4 +103,13 @@ h4 {
 
 #octopus {
   height: 300px;
+}
+
+#sticky-note {
+  position: absolute;
+  top: 0;
+  height: 200px;
+  width: 200px;
+  background-color: #ff4632;
+  color: #fff;
 }
